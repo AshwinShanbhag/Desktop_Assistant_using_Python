@@ -25,7 +25,7 @@ def speak(audio):
 # Function to wish the user
 def wishme():
     hour= int(datetime.datetime.now().hour)
-    if hour> 0 and hour<12:
+    if hour>= 0 and hour<12:
         speak ("Good Morning Sir")
 
     elif hour>= 12 and hour <6:
@@ -43,8 +43,8 @@ def takeCommand():
     r=sr.Recognizer()
     with sr.Microphone() as source:
         print("Listening......")
-        r.pause_threshold = 1.2
-        r.energy_threshold=250
+        r.pause_threshold = 1.5
+        r.energy_threshold=350
         audio= r.listen(source)
     
     try:
@@ -74,15 +74,15 @@ def open_wikipedia(word):
 
 #function to open youtube
 def open_youtube(word):
-    webbrowser.open("youtube.com")
+    webbrowser.open("https://www.youtube.com")
     speak("Opening youtube Sir.....")
 
 
 #function to open google
 def open_google(word):
-    webbrowser.open("google.com")
+    webbrowser.open("https://www.google.com")
     time.sleep(2)
-    speak("Opening Google Sir.....")
+    speak("Opening Google.......")
     speak("What would you like to search sir....")
     new_word= takeCommand()
     try:
@@ -101,20 +101,25 @@ def play_music(word):
 #function to search in google
 def open_search(word):
     if 'search' in word:
-        word= word.strip('search')
+        word= word.replace('search',"")
     else:
-        word=word.strip('define')
-    results= webbrowser.open("https://www.google.com/search?q=meaning+of"+ word )
+        word=word.replace('define',"")
+    speak("Searching " + word + " .....")
+    results= webbrowser.open("https://www.google.com/search?q=meaning+of "+ word )
     try:
         speak("Sir! would you like me to tell its meaning")
-        word= takeCommand()
-        if 'yes'in word:
+        command= takeCommand()
+        time.sleep(3) #will let the user to think yes or no 
+        if 'yes'in command:
             open_wikipedia(word)
         else:
             speak("Ok Sir!!")
+            
     except:
         speak("No able to find it in wikipedia...")
         
+def whats_next():
+    speak("what would you like me to do next?")
     
 
 # main
@@ -126,22 +131,27 @@ if __name__ == '__main__':
         
         if 'wikipedia' in word:
             open_wikipedia(word)
+            whats_next()
 
         
         elif 'open youtube' in word:
             open_youtube(word)
+            whats_next()
 
         
         elif 'open google' in word:
             open_google(word)
+            whats_next()
 
             
         elif 'play music' in word or 'play spotify' in word:
-            play_music(word)      
+            play_music(word)
+            whats_next()      
 
 
         elif 'search' in word or 'define' in word:
             open_search(word)
+            whats_next()
                 
    
 
