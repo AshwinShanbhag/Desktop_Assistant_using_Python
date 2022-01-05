@@ -1,11 +1,8 @@
 import pyttsx3
 import speech_recognition as sr
 import wikipedia
-
 import datetime
-
-
-
+import webbrowser
 
 
 engine = pyttsx3.init('sapi5')    #Sapi5 is a Microsoft speak API to take voice
@@ -28,12 +25,13 @@ def wishme():
 
     elif hour>= 12 and hour <6:
         speak("Good Afternoon Sir")
-
+    
     else:
         speak("Good Evening Sir")
 
     speak("I am Ethina, How can I help you")
 
+# function to take command from the user 
 '''It take the microphone input from the user and returns string as output'''
 def takeCommand():
     r=sr.Recognizer()
@@ -50,9 +48,29 @@ def takeCommand():
 
     except:
         print("Speak that again please")
+        speak("Not able to hear you sir, Can you please repeat")
         return "None"
     
     return word
+
+#function to search words in wikipedia
+def open_wikipidia(word):
+    speak("Searching" + word+ " .....")
+    print("Searching  Wikipedia.....please wait")
+    word=word.replace("wikipedia","")
+    results= wikipedia.summary(word,sentences=2)
+    print(results)
+    speak("Acccording to Wikipedia")
+    speak(results)
+
+def open_youtube(word):
+    webbrowser.open("youtube.com")
+    speak("Opening youtube Sir... please wait.....")
+
+
+def open_google(word):
+    webbrowser.open("google.com")
+    speak("Opening Google Sir... please wait.....")
 
 
 
@@ -67,17 +85,20 @@ if __name__ == '__main__':
         word =takeCommand().lower()
         
         if 'wikipedia' in word:
-            speak("Searching" + word+ " .....")
-            print("Searching  Wikipedia.....please wait")
-            word=word.replace("wikipedia","")
-            results= wikipedia.summary(word,sentences=2)
-            print(results)
-            speak("Acccording to Wikipedia")
-            speak(results)
+            open_wikipidia(word)
 
-        if 'goodbye'in word:
+        
+        
+        elif 'open youtube' in word:
+            open_youtube(word)
+        
+        elif 'open google' in word:
+            open_google(word)
+            
+
+        
+        elif 'goodbye'in word:
             speak("Good bye Sir, Have a good day")
             break
-        
         
 
