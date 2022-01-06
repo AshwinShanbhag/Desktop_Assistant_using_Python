@@ -44,7 +44,7 @@ def takeCommand():
     with sr.Microphone() as source:
         print("Listening......")
         r.pause_threshold = 1.5
-        r.energy_threshold=350
+        r.energy_threshold=300
         audio= r.listen(source)
     
     try:
@@ -55,7 +55,7 @@ def takeCommand():
     except:
         print("Not able to hear you sir, Can you please repeat?")
         time.sleep(3) #to wait for 3 secs 
-        return "None"
+        return "sorry"
     
     return word
 
@@ -104,6 +104,8 @@ def open_search(word):
         word= word.replace('search',"")
     else:
         word=word.replace('define',"")
+    if word == "":
+        return "sorry"
     speak("Searching " + word + " .....")
     results= webbrowser.open("https://www.google.com/search?q=meaning+of "+ word )
     try:
@@ -114,10 +116,19 @@ def open_search(word):
             open_wikipedia(word)
         else:
             speak("Ok Sir!!")
+            return "None"
+
             
     except:
         speak("No able to find it in wikipedia...")
         
+def cant_process(word):
+    if not'sorry' in word:
+        whats_next()
+    else:
+        speak("Sorry!! Unable to process this task Sir....")
+        whats_next()
+
 def whats_next():
     speak("what would you like me to do next?")
     
@@ -144,14 +155,15 @@ if __name__ == '__main__':
             whats_next()
 
             
-        elif 'play music' in word or 'play spotify' in word:
+        elif 'play music' in word or 'open spotify' in word:
             play_music(word)
             whats_next()      
 
 
         elif 'search' in word or 'define' in word:
-            open_search(word)
-            whats_next()
+            word=open_search(word)
+            cant_process(word)
+            
                 
    
 
@@ -163,7 +175,11 @@ if __name__ == '__main__':
         elif 'thank you'in word or 'thankyou' in word:
             speak("You are Welcome....... ,Have a good day sir")
             break
-    
+
+        elif not 'sorry'in word:
+            speak("Sorry!! Unable to process this task Sir....")
+            whats_next()
+                
 
         
         
