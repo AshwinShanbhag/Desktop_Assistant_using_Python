@@ -55,7 +55,7 @@ def takeCommand():
     except:
         print("Not able to hear you sir, Can you please repeat?")
         time.sleep(3) #to wait for 3 secs 
-        return "sorry"
+        return "None"
     
     return word
 
@@ -176,9 +176,7 @@ if __name__ == '__main__':
             speak("You are Welcome....... ,Have a good day sir")
             break
 
-        elif not 'sorry'in word:
-            speak("Sorry!! Unable to process this task Sir....")
-            whats_next()
+        
                 
 
         
