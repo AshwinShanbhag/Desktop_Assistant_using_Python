@@ -9,7 +9,6 @@ import time
 
 
 
-
 engine = pyttsx3.init('sapi5')    #Sapi5 is a Microsoft speak API to take voice
 voices= engine.getProperty('voices')
 #print(voices[2].id)   to print whose voice it is
@@ -61,7 +60,7 @@ def takeCommand():
 
 #function to search words in wikipedia
 def open_wikipedia(word):
-    speak("Searching " + word + " .....")
+    speak("Searching " + word + "in wikipedia .....")
     print("Searching  Wikipedia.....please wait")
     word=word.replace("wikipedia","")
     results= wikipedia.summary(word,sentences=2)
@@ -70,8 +69,6 @@ def open_wikipedia(word):
     speak(results)
         
     
-    
-
 #function to open youtube
 def open_youtube(word):
     webbrowser.open("https://www.youtube.com")
@@ -114,6 +111,7 @@ def open_search(word):
         time.sleep(3) #will let the user to think yes or no 
         if 'yes'in command:
             open_wikipedia(word)
+            return "None"
         else:
             speak("Ok Sir!!")
             return "None"
@@ -121,7 +119,9 @@ def open_search(word):
             
     except:
         speak("No able to find it in wikipedia...")
+
         
+#function if unable to process the task
 def cant_process(word):
     if not'sorry' in word:
         whats_next()
@@ -129,6 +129,7 @@ def cant_process(word):
         speak("Sorry!! Unable to process this task Sir....")
         whats_next()
 
+#function to ask user what to do next
 def whats_next():
     speak("what would you like me to do next?")
     
@@ -164,8 +165,6 @@ if __name__ == '__main__':
             word=open_search(word)
             cant_process(word)
             
-                
-   
 
         elif 'goodbye' in word or 'good bye' in word: 
             speak("Good bye Sir, Have a good day")
@@ -183,4 +182,3 @@ if __name__ == '__main__':
         
              
         
-
