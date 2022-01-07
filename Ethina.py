@@ -118,7 +118,8 @@ def open_search(word):
 
             
     except:
-        speak("No able to find it in wikipedia...")
+        speak("Sorry sir, I am unable to find its meaning in wikipedia...")
+        return "None"
 
         
 #function if unable to process the task
@@ -174,6 +175,10 @@ if __name__ == '__main__':
         elif 'thank you'in word or 'thankyou' in word:
             speak("You are Welcome....... ,Have a good day sir")
             break
+
+        elif word=='open':
+            speak("Sorry sir, Can you please specify the command ")
+            
 
         
                 
