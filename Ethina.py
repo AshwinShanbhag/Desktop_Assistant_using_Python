@@ -38,7 +38,7 @@ def wishme():
     else:
         speak("Good Evening "+ address)
 
-    speak("I am Ethina, How can I help you")
+    speak("How can I help you")
 
 
 # function to take command from the user 
@@ -146,8 +146,8 @@ def whats_next():
 # main
 if __name__ == '__main__':
     speak("Welcome to Desktop Assistant...")
-    speak("How do you want me to address you?")
-    speak("By Sir.... or By Madam...")
+    speak("I am Ethina")
+    speak("How would you like me to address you? By Sir.... or By Madam...")
     addre=takeCommand().lower()
     if 'sir' in addre or 'madam' in addre:
         address=open_address(addre)
