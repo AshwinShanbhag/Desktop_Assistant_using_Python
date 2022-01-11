@@ -11,19 +11,21 @@ In this Project , A Desktop assistant is designed using python and is customize 
     pyttsx3 is a text-to-speech conversion library in Python. An application invokes the pyttsx3.init() factory function to get a reference to a pyttsx3. Engine instance. it is a very easy to use tool which converts the entered text into speech.
     The pyttsx3 module supports two voices first is female and the second is male which is provided by “sapi5” for windows.
     It supports three TTS engines :
-    •	sapi5 – SAPI5 on Windows
-    •	nsss – NSSpeechSynthesizer on Mac OS X
-    •	espeak – eSpeak on every other platform
-    Installation
+    •sapi5 – SAPI5 on Windows
+    •nsss – NSSpeechSynthesizer on Mac OS X
+    •espeak – eSpeak on every other platform
+
+    Installation:
     To install the pyttsx3 module, first, you have to open the terminal and write:
-    pip install pyttsx3
+### pip install pyttsx3
 
 
 ## 2.Speech Recognition:
     Speech Recognition is a library for performing speech recognition, with support for several engines and APIs, online and offline.From these libraries, we will be working with SpeechRecognition library because of it’s low barrier to entry and it’s compatibility with much available speech recognition APIs. 
     Installation:
     We can install SpeechRecogntion library by running the following line in our terminal window:
-    pip install SpeechRecognition
+
+### pip install SpeechRecognition
 
     Note : For the speechrecognition to work pyaudio is to be installed
 
@@ -32,25 +34,27 @@ In this Project , A Desktop assistant is designed using python and is customize 
     PyAudio provides Python bindings for PortAudio, the cross-platform audio I/O library. With PyAudio, you can easily use Python to play and record audio on a variety of platforms.
     
     Installation:
-
     We can install PyAudio library by running the following line in our terminal window:
-    pip  install pyaudio 
+### pip  install pyaudio 
     or 
-    pip install pipwin
-    pipwin install pyaudio
+### pip install pipwin
+### pipwin install pyaudio
 
 
 ## 4.Wikipedia:
     Wikipedia is a multilingual online encyclopedia created and maintained as an open collaboration project by a community of volunteer editors using a wiki-based editing system.
+
+    Installation:
     In order to extract data from Wikipedia, we must first install the Python Wikipedia library, which wraps the official Wikipedia API. This can be done by entering the command below in your command prompt or terminal:
-    pip install wikipedia
+    
+### pip install wikipedia
 
 
 #   Packages Used in the program:
-    1.	Pyttsx3
-    2.	Speech Recognition
-    3.	Wikipedia
-    4.	Web browser
-    5.	Datetime
-    6.	OS
-    7.	Time
+    1.Pyttsx3
+    2.Speech Recognition
+    3.Wikipedia
+    4.Web browser
+    5.Datetime
+    6.OS
+    7.Time
