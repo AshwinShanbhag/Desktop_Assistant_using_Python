@@ -63,10 +63,10 @@ In order to extract data from Wikipedia, we must first install the Python Wikipe
 
 
 #   Packages Used in the program:
-    1.Pyttsx3
-    2.Speech Recognition
-    3.Wikipedia
-    4.Web browser
-    5.Datetime
-    6.OS
-    7.Time
+   1. Pyttsx3
+   2. Speech Recognition
+   3. Wikipedia
+   4. Web browser
+   5. Datetime
+   6. OS
+   7. Time
