@@ -15,8 +15,8 @@ It supports three TTS engines :
 •nsss – NSSpeechSynthesizer on Mac OS X
 •espeak – eSpeak on every other platform
 
-Installation:
-To install the pyttsx3 module, first, you have to open the terminal and write:
+Installation: To install the pyttsx3 module, first, you have to open the terminal and write:
+
     pip install pyttsx3
 
 
@@ -35,8 +35,11 @@ PyAudio provides Python bindings for PortAudio, the cross-platform audio I/O lib
 
 Installation:
 We can install PyAudio library by running the following line in our terminal window:
+
     pip  install pyaudio 
+
 or 
+
     pip install pipwin
     pipwin install pyaudio
 
