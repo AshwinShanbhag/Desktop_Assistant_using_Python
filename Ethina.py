@@ -47,7 +47,7 @@ def takeCommand():
     r=sr.Recognizer()
     with sr.Microphone() as source:
         print("Listening......")
-        r.pause_threshold = 1.5
+        r.pause_threshold = 1.3
         r.energy_threshold=300
         audio= r.listen(source)
     
@@ -58,14 +58,14 @@ def takeCommand():
 
     except:
         print("Not able to hear you, Can you please repeat?")
-        time.sleep(3) #to wait for 3 secs 
+        time.sleep(2) #to wait for 3 secs 
         return "None"
     
     return word
 
 #function to search words in wikipedia
 def open_wikipedia(word):
-    speak("Searching " + word + "in wikipedia .....")
+    speak("Searching " + word + " in wikipedia .....")
     print("Searching  Wikipedia.....please wait")
     word=word.replace("wikipedia","")
     results= wikipedia.summary(word,sentences=2)
@@ -88,9 +88,11 @@ def open_google(word):
     speak("What would you like to search "+ address +"....")
     new_word= takeCommand()
     try:
-        open_search(new_word)
+        if new_word=="None":
+            speak("Sorry "+address+ "!! not able to search")
+        
     except:
-        speak("Sorry "+address+ "!! not able to search")
+        open_search(new_word)
 
 
 #function to open music
