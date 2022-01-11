@@ -9,7 +9,7 @@ import time
 
 
 
-engine = pyttsx3.init('sapi5')    #Sapi5 is a Microsoft speak API to take voice
+engine = pyttsx3.init('sapi5')    #Sapi5 is a Microsoft speak API to speak voice
 voices= engine.getProperty('voices')
 #print(voices[2].id)   to print whose voice it is
 engine.setProperty('voice',voices[1].id)
@@ -27,7 +27,7 @@ def wishme():
     if hour>= 0 and hour<12:
         speak ("Good Morning Sir")
 
-    elif hour>= 12 and hour <6:
+    elif hour>= 12 and hour <18:
         speak("Good Afternoon Sir")
     
     else:
@@ -132,6 +132,7 @@ def cant_process(word):
 
 #function to ask user what to do next
 def whats_next():
+    time.sleep(5)
     speak("what would you like me to do next?")
     
 
@@ -177,13 +178,4 @@ if __name__ == '__main__':
             break
 
         elif word=='open':
-            speak("Sorry sir, Can you please specify the command ")
-            
-
-        
-                
-
-        
-        
-             
-        
+            speak("Sorry sir, Can you please specify the command ")        
