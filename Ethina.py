@@ -87,11 +87,9 @@ def open_google(word):
     speak("Opening Google.......")
     speak("What would you like to search "+ address +"....")
     new_word= takeCommand()
-    try:
-        if new_word=="None":
-            speak("Sorry "+address+ "!! not able to search")
-        
-    except:
+    if new_word=="None":
+        speak("Sorry "+address+ "!! not able to search")
+    else:
         open_search(new_word)
 
 
